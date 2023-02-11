@@ -1,3 +1,6 @@
-use super::traits;
-
-// pub fn find_max<T: traits::StaticNumber> ()
+pub fn max<T: Ord>(numbers: &Vec<T>) -> &T
+where
+    T: Ord,
+{
+    numbers.iter().max().unwrap()
+}

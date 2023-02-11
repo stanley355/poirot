@@ -1,5 +1,6 @@
 use self::traits::StaticNumber;
 
+pub mod absolute;
 pub mod mean;
 pub mod tests;
 pub mod traits;
@@ -19,5 +20,12 @@ impl Statistics {
         T: From<f32>,
     {
         mean::calc_float_mean(numbers)
+    }
+
+    pub fn max<T: Ord>(numbers: &Vec<T>) -> &T
+    where
+        T: Ord,
+    {
+        absolute::max(numbers)
     }
 }
