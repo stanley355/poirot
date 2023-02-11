@@ -1,6 +1,6 @@
 use super::traits::MeanNumbers;
 
-pub fn mean_i32<T>(numbers: &Vec<T>) -> T
+pub fn calc_integer_mean<T>(numbers: &Vec<T>) -> T
 where
     T: MeanNumbers + From<i32>,
 {
@@ -8,7 +8,7 @@ where
     sum / T::from(numbers.len() as i32)
 }
 
-pub fn mean_f32<T>(numbers: &Vec<T>) -> T
+pub fn calc_float_mean<T>(numbers: &Vec<T>) -> T
 where
     T: MeanNumbers + From<f32>,
 {
@@ -21,10 +21,16 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_mean_i32() {
+    fn test_integer_mean() {
         let number_list: Vec<i32> = vec![34, 50, 25, 100, 65];
-
-        let result = mean_i32(&number_list);
+        let result = calc_integer_mean(&number_list);
         assert_eq!(result, 54);
+    }
+
+    #[test]
+    fn test_float_mean() {
+        let number_list: Vec<f32> = vec![34.0, 50.0, 25.0, 100.0, 65.0];
+        let result = calc_float_mean(&number_list);
+        assert_eq!(result, 54.8);
     }
 }

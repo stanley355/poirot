@@ -8,6 +8,13 @@ impl Statistics {
     where
         T: traits::MeanNumbers + From<i32>,
     {
-        mean::mean_i32(numbers)
+        mean::calc_integer_mean(numbers)
+    }
+
+    pub fn calc_float_mean<T>(numbers: &Vec<T>) -> T
+    where
+        T: traits::MeanNumbers + From<f32>,
+    {
+        mean::calc_float_mean(numbers)
     }
 }
