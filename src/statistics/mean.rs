@@ -1,9 +1,9 @@
-use super::traits::StaticNumber;
+use num::Float;
 
-pub fn calc_mean<T: StaticNumber>(numbers: &Vec<T>) -> T
+pub fn calc_mean<F: Float>(numbers: &Vec<F>) -> F
 where
-    T: StaticNumber + From<f32>,
+    F: Float
 {
-    let sum: T = numbers.iter().fold(T::from(0.0), |acc, &x| acc + x);
-    sum / T::from(numbers.len() as f32)
+    let sum: F = numbers.iter().fold(F::from(0.0).unwrap(), |acc, &x| acc + x);
+    sum / F::from(numbers.len() as f32).unwrap()
 }

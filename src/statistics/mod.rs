@@ -1,17 +1,17 @@
-use self::traits::StaticNumber;
+use num::Float;
 
 pub mod absolute;
 pub mod mean;
 pub mod tests;
-pub mod traits;
 
 pub struct Statistics;
 
 impl Statistics {
-    pub fn calc_float_mean<T: StaticNumber>(numbers: &Vec<T>) -> T
+    pub fn calc_float_mean<F: Float>(numbers: &Vec<F>) -> F
     where
-        T: From<f32>,
+        F: Float,
     {
+        
         mean::calc_mean(numbers)
     }
 

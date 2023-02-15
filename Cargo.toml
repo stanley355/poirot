@@ -9,3 +9,4 @@ name = "poirot"
 path = "src/lib.rs"
 
 [dependencies]
+num = "0.4.0"
